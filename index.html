@@ -12,73 +12,72 @@
 </head>
 <body>
     
-    <!-- Hero Section -->
+    <!-- Parallax Background -->
+    <div class="parallax-bg" id="parallax-bg"></div>
+    
+    <!-- Hero Section с анимацией -->
     <section class="hero" id="hero">
-        <div class="hero-bg"></div>
-        <div class="container">
-            <div class="hero-content">
-                <!-- Логотип -->
-                <div class="logo-container">
-                    <img src="images/logo-luch.jpg" alt="ЛУЧ — Студия автосвета" class="logo">
-                </div>
-                
-                <!-- Место для слогана -->
-                <div class="slogan-placeholder">
-                    <p class="slogan-text">[ Ваш слоган здесь ]</p>
-                </div>
-                
-                <div class="hero-buttons">
-                    <a href="#services" class="btn btn-primary">Наши услуги</a>
-                    <a href="#contact" class="btn btn-secondary">Связаться с нами</a>
-                </div>
+        <div class="hero-content">
+            <!-- SVG Логотип с анимацией -->
+            <div class="logo-container" data-scroll>
+                <img src="images/logo-luch.svg" alt="ЛУЧ — Студия автосвета" class="logo" id="logo">
+            </div>
+            
+            <div class="slogan-placeholder" data-scroll>
+                <p class="slogan-text">Профессиональный автосвет</p>
+            </div>
+            
+            <div class="hero-buttons" data-scroll>
+                <a href="#services" class="btn btn-primary smooth-scroll">Наши услуги</a>
+                <a href="#contact" class="btn btn-secondary smooth-scroll">Связаться с нами</a>
             </div>
         </div>
         
-        <!-- Светящиеся полосы на полу (декор) -->
-        <div class="floor-lights">
-            <div class="light-strip light-strip-1"></div>
-            <div class="light-strip light-strip-2"></div>
-            <div class="light-strip light-strip-3"></div>
+        <!-- Анимированные световые лучи -->
+        <div class="light-rays">
+            <div class="ray ray-1"></div>
+            <div class="ray ray-2"></div>
+            <div class="ray ray-3"></div>
         </div>
     </section>
 
-    <!-- Services Section -->
+    <!-- Services Section с появлением карточек -->
     <section class="services" id="services">
         <div class="container">
-            <h2 class="section-title">Наши услуги</h2>
+            <h2 class="section-title" data-scroll>Наши услуги</h2>
             <div class="services-grid">
                 
-                <div class="service-card">
+                <div class="service-card" data-scroll>
                     <div class="service-icon">💡</div>
                     <h3>Установка LED фар</h3>
                     <p>Современные светодиодные фары для вашего автомобиля. Яркий свет, низкое энергопотребление, стильный внешний вид.</p>
                 </div>
 
-                <div class="service-card">
+                <div class="service-card" data-scroll>
                     <div class="service-icon">🔆</div>
                     <h3>Ретрофит Matrix LED</h3>
                     <p>Интеллектуальные фары с адаптивным светом. Технология Matrix LED для максимального комфорта и безопасности.</p>
                 </div>
 
-                <div class="service-card">
+                <div class="service-card" data-scroll>
                     <div class="service-icon">⚡</div>
                     <h3>Лазерный свет</h3>
                     <p>Премиальная технология лазерного освещения. Дальность света до 600 метров, непревзойдённая яркость.</p>
                 </div>
 
-                <div class="service-card">
+                <div class="service-card" data-scroll>
                     <div class="service-icon">🎯</div>
                     <h3>Адаптивные системы</h3>
                     <p>Умное освещение, которое подстраивается под условия дороги. Безопасность и комфорт на новом уровне.</p>
                 </div>
 
-                <div class="service-card">
+                <div class="service-card" data-scroll>
                     <div class="service-icon">🔧</div>
                     <h3>Диагностика и ремонт</h3>
                     <p>Профессиональная диагностика систем освещения. Ремонт и настройка любой сложности.</p>
                 </div>
 
-                <div class="service-card">
+                <div class="service-card" data-scroll>
                     <div class="service-icon">✨</div>
                     <h3>Кастомизация</h3>
                     <p>Индивидуальные решения для вашего автомобиля. Создаём уникальный образ с помощью света.</p>
@@ -88,17 +87,32 @@
         </div>
     </section>
 
-    <!-- Portfolio Section -->
+    <!-- Portfolio Section с параллакс-картинками -->
     <section class="portfolio" id="portfolio">
         <div class="container">
-            <h2 class="section-title">Наши работы</h2>
-            <p class="section-subtitle">Примеры установленного автосвета</p>
+            <h2 class="section-title" data-scroll>Наши работы</h2>
+            <p class="section-subtitle" data-scroll>Примеры установленного автосвета</p>
             
-            <div class="portfolio-grid" id="portfolio-grid">
-                <!-- Сюда добавим сгенерированные фото -->
-                <div class="portfolio-item">
+            <div class="portfolio-grid">
+                <!-- Placeholder для будущих фото -->
+                <div class="portfolio-item" data-scroll data-parallax="0.3">
                     <div class="portfolio-placeholder">
-                        <p>Загрузка примеров работ...</p>
+                        <p>LED фары BMW</p>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-scroll data-parallax="0.5">
+                    <div class="portfolio-placeholder">
+                        <p>Matrix LED Audi</p>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-scroll data-parallax="0.4">
+                    <div class="portfolio-placeholder">
+                        <p>Лазерный свет Mercedes</p>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-scroll data-parallax="0.6">
+                    <div class="portfolio-placeholder">
+                        <p>Кастомная подсветка</p>
                     </div>
                 </div>
             </div>
@@ -108,25 +122,25 @@
     <!-- About Section -->
     <section class="about" id="about">
         <div class="container">
-            <h2 class="section-title">О студии</h2>
+            <h2 class="section-title" data-scroll>О студии</h2>
             <div class="about-content">
-                <div class="about-text">
+                <div class="about-text" data-scroll>
                     <h3>ЛУЧ — это технологии света</h3>
                     <p>Мы специализируемся на профессиональной установке современных систем автомобильного освещения. В нашей студии используются только передовые технологии и оригинальные комплектующие.</p>
                     <p>Минималистичный дизайн нашего пространства с LED-подсветкой в полу создаёт атмосферу технологичности и внимания к деталям — точно так же, как мы работаем с вашим автомобилем.</p>
                 </div>
                 <div class="about-features">
-                    <div class="feature">
+                    <div class="feature" data-scroll>
                         <span class="feature-number">01</span>
                         <h4>Профессионализм</h4>
                         <p>Опытные специалисты с глубоким пониманием технологий</p>
                     </div>
-                    <div class="feature">
+                    <div class="feature" data-scroll>
                         <span class="feature-number">02</span>
                         <h4>Качество</h4>
                         <p>Только оригинальные компоненты и проверенные решения</p>
                     </div>
-                    <div class="feature">
+                    <div class="feature" data-scroll>
                         <span class="feature-number">03</span>
                         <h4>Современность</h4>
                         <p>Актуальные технологии и инновационные подходы</p>
@@ -139,27 +153,27 @@
     <!-- Contact Section -->
     <section class="contact" id="contact">
         <div class="container">
-            <h2 class="section-title">Связаться с нами</h2>
+            <h2 class="section-title" data-scroll>Связаться с нами</h2>
             <div class="contact-content">
                 <div class="contact-info">
-                    <div class="contact-item">
+                    <div class="contact-item" data-scroll>
                         <h4>📞 Телефон</h4>
                         <p>+7 (XXX) XXX-XX-XX</p>
                     </div>
-                    <div class="contact-item">
+                    <div class="contact-item" data-scroll>
                         <h4>📍 Адрес</h4>
                         <p>Москва, Тюменский проезд</p>
                     </div>
-                    <div class="contact-item">
+                    <div class="contact-item" data-scroll>
                         <h4>💬 Мессенджеры</h4>
                         <p>WhatsApp / Telegram</p>
                     </div>
-                    <div class="contact-item">
+                    <div class="contact-item" data-scroll>
                         <h4>📧 Email</h4>
-                        <p>info@example.com</p>
+                        <p>info@luch-studio.ru</p>
                     </div>
                 </div>
-                <div class="contact-form">
+                <div class="contact-form" data-scroll>
                     <h3>Оставить заявку</h3>
                     <form>
                         <input type="text" placeholder="Ваше имя" required>
@@ -178,7 +192,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">
-                    <img src="images/logo-luch.jpg" alt="ЛУЧ" class="footer-logo-img">
+                    <img src="images/logo-luch.svg" alt="ЛУЧ" class="footer-logo-img">
                 </div>
                 <div class="footer-text">
                     <p>&copy; 2026 ЛУЧ — Студия автосвета. Все права защищены.</p>

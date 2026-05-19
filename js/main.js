@@ -1,9 +1,11 @@
 // ============================================
-// ПРЕМИАЛЬНЫЙ МИНИМАЛИЗМ
+// ИНТЕРАКТИВНЫЙ САЙТ В СТИЛЕ APPLE
+// Parallax, Scroll Animations, Moving Background
 // ============================================
 
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
+// --- Smooth Scroll ---
+document.querySelectorAll('.smooth-scroll').forEach(link => {
+    link.addEventListener('click', function(e) {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
@@ -15,83 +17,87 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// ============================================
-// ПЛАВНОЕ ПОЯВЛЕНИЕ ЭЛЕМЕНТОВ
-// ============================================
+// --- Parallax Background ---
+const parallaxBg = document.getElementById('parallax-bg');
+window.addEventListener('scroll', () => {
+    const scrolled = window.pageYOffset;
+    parallaxBg.style.transform = `translateY(${scrolled * 0.5}px)`;
+});
 
+// --- Logo Animation on Scroll ---
+const logo = document.getElementById('logo');
+window.addEventListener('scroll', () => {
+    const scrolled = window.pageYOffset;
+    if (scrolled > 100) {
+        logo.style.transform = `scale(${1 - scrolled * 0.0005}) translateY(${scrolled * 0.3}px)`;
+        logo.style.opacity = Math.max(0.3, 1 - scrolled * 0.001);
+    } else {
+        logo.style.transform = 'scale(1) translateY(0)';
+        logo.style.opacity = 1;
+    }
+});
+
+// --- Scroll Reveal Animations ---
 const observerOptions = {
     threshold: 0.15,
-    rootMargin: '0px'
+    rootMargin: '0px 0px -50px 0px'
 };
 
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
+            entry.target.classList.add('visible');
         }
     });
 }, observerOptions);
 
-document.querySelectorAll('.service-card, .portfolio-item, .feature').forEach((el, index) => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(30px)';
-    el.style.transition = `all 0.8s cubic-bezier(0.4, 0, 0.2, 1) ${index * 0.05}s`;
+// Наблюдаем за всеми элементами с data-scroll
+document.querySelectorAll('[data-scroll]').forEach(el => {
+    el.classList.add('scroll-hidden');
     observer.observe(el);
 });
 
-// ============================================
-// ФОРМА
-// ============================================
+// --- Parallax для картинок портфолио ---
+const portfolioItems = document.querySelectorAll('[data-parallax]');
+window.addEventListener('scroll', () => {
+    portfolioItems.forEach(item => {
+        const rect = item.getBoundingClientRect();
+        const scrolled = window.pageYOffset;
+        const speed = parseFloat(item.getAttribute('data-parallax')) || 0.3;
+        
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+            const yPos = -(scrolled - item.offsetTop) * speed;
+            item.style.transform = `translateY(${yPos}px)`;
+        }
+    });
+});
 
-const contactForm = document.querySelector('.contact-form form');
-if (contactForm) {
-    contactForm.addEventListener('submit', function(e) {
+// --- Animated Light Rays ---
+const rays = document.querySelectorAll('.ray');
+rays.forEach((ray, index) => {
+    ray.style.animationDelay = `${index * 0.5}s`;
+});
+
+// --- Form Validation ---
+const form = document.querySelector('.contact-form form');
+if (form) {
+    form.addEventListener('submit', function(e) {
         e.preventDefault();
-        
-        const button = this.querySelector('button');
-        const originalText = button.textContent;
-        button.textContent = 'Отправка...';
-        button.disabled = true;
-        
-        setTimeout(() => {
-            button.textContent = 'Отправлено';
-            this.reset();
-            
-            setTimeout(() => {
-                button.textContent = originalText;
-                button.disabled = false;
-            }, 2000);
-        }, 1000);
+        alert('Спасибо! Ваша заявка отправлена. Мы свяжемся с вами в ближайшее время.');
+        form.reset();
     });
 }
 
-// ============================================
-// ПОРТФОЛИО
-// ============================================
+// --- Mouse Follow Effect на Hero ---
+const hero = document.querySelector('.hero');
+hero.addEventListener('mousemove', (e) => {
+    const { clientX, clientY } = e;
+    const { innerWidth, innerHeight } = window;
+    
+    const xPos = (clientX / innerWidth - 0.5) * 20;
+    const yPos = (clientY / innerHeight - 0.5) * 20;
+    
+    parallaxBg.style.transform = `translate(${xPos}px, ${yPos}px)`;
+});
 
-const portfolioGrid = document.getElementById('portfolio-grid');
-if (portfolioGrid) {
-    portfolioGrid.innerHTML = '';
-    
-    const portfolioExamples = [
-        { title: 'BMW 5 Series', description: 'Matrix LED' },
-        { title: 'Mercedes-Benz E-Class', description: 'Laser Light' },
-        { title: 'Audi A6', description: 'LED Upgrade' },
-        { title: 'Tesla Model 3', description: 'Custom LED' },
-        { title: 'Porsche Cayenne', description: 'Adaptive System' },
-        { title: 'Range Rover', description: 'Premium LED' }
-    ];
-    
-    portfolioExamples.forEach((example) => {
-        const item = document.createElement('div');
-        item.className = 'portfolio-item';
-        item.innerHTML = `
-            <div class="portfolio-placeholder">
-                <h4>${example.title}</h4>
-                <p>${example.description}</p>
-            </div>
-        `;
-        portfolioGrid.appendChild(item);
-    });
-}
+console.log('✨ Интерактивный сайт ЛУЧ загружен');

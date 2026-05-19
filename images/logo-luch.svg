@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200" width="800" height="200">
+  <defs>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Фон прозрачный для использования везде -->
+  
+  <!-- Световая линия слева -->
+  <line x1="20" y1="100" x2="150" y2="100" stroke="#00d4ff" stroke-width="3" filter="url(#glow)"/>
+  
+  <!-- Текст "ЛУЧ" -->
+  <text x="180" y="130" font-family="Arial, sans-serif" font-size="80" font-weight="bold" fill="#ffffff" filter="url(#glow)">ЛУЧ</text>
+</svg>
