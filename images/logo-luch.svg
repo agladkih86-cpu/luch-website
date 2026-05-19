@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 300" width="1000" height="300">
   <defs>
-    <!-- Световой эффект -->
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="5" result="coloredBlur"/>
+    <!-- Неоновый световой эффект -->
+    <filter id="neon-glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
       <feMerge>
         <feMergeNode in="coloredBlur"/>
         <feMergeNode in="SourceGraphic"/>
@@ -11,26 +11,21 @@
     </filter>
   </defs>
   
-  <!-- Прозрачный фон (без фона вообще) -->
+  <!-- Фон прозрачный -->
   
-  <!-- Световая линия слева -->
-  <line x1="30" y1="150" x2="200" y2="150" 
+  <!-- Световая линия-луч слева (символизирует луч света) -->
+  <line x1="20" y1="140" x2="200" y2="140" 
         stroke="#00d4ff" 
-        stroke-width="4" 
+        stroke-width="5" 
         stroke-linecap="round"
-        filter="url(#glow)"/>
+        filter="url(#neon-glow)"/>
   
-  <!-- Буквы "ЛУЧ" в векторе (геометричный шрифт, как в оригинале) -->
-  <g fill="#ffffff" filter="url(#glow)">
-    
-    <!-- Буква Л -->
-    <path d="M 280 100 L 280 240 L 300 240 L 300 220 L 360 220 L 360 240 L 380 240 L 380 100 L 360 100 L 360 200 L 300 200 L 300 100 Z"/>
-    
-    <!-- Буква У -->
-    <path d="M 420 100 L 420 180 Q 420 220 460 220 Q 500 220 500 180 L 500 100 L 520 100 L 520 180 Q 520 230 500 245 Q 480 260 460 260 Q 440 260 420 245 Q 400 230 400 180 L 400 100 Z"/>
-    
-    <!-- Буква Ч -->
-    <path d="M 560 100 L 560 160 Q 560 180 580 180 L 600 180 L 600 100 L 620 100 L 620 240 L 600 240 L 600 200 L 580 200 Q 540 200 540 160 L 540 100 Z"/>
-    
-  </g>
+  <!-- Текст "ЛУЧ" в светлом неоновом стиле -->
+  <text x="240" y="210" 
+        font-family="'Inter', 'Helvetica Neue', sans-serif" 
+        font-size="160" 
+        font-weight="300"
+        fill="#ffffff" 
+        filter="url(#neon-glow)"
+        letter-spacing="5">ЛУЧ</text>
 </svg>
