@@ -13,19 +13,40 @@
   
   <!-- Фон прозрачный -->
   
-  <!-- Световая линия-луч слева (символизирует луч света) -->
+  <!-- Световая линия-луч слева -->
   <line x1="20" y1="140" x2="200" y2="140" 
         stroke="#00d4ff" 
         stroke-width="5" 
         stroke-linecap="round"
         filter="url(#neon-glow)"/>
   
-  <!-- Текст "ЛУЧ" в светлом неоновом стиле -->
-  <text x="240" y="210" 
-        font-family="'Inter', 'Helvetica Neue', sans-serif" 
-        font-size="160" 
-        font-weight="300"
-        fill="#ffffff" 
-        filter="url(#neon-glow)"
-        letter-spacing="5">ЛУЧ</text>
+  <!-- Буква Л -->
+  <g fill="#ffffff" filter="url(#neon-glow)">
+    <!-- Вертикальная линия слева -->
+    <rect x="240" y="80" width="20" height="160" rx="2"/>
+    <!-- Горизонтальная линия снизу -->
+    <rect x="240" y="220" width="80" height="20" rx="2"/>
+    <!-- Диагональная линия вверх-вправо -->
+    <line x1="260" y1="100" x2="320" y2="60" stroke="#ffffff" stroke-width="18" stroke-linecap="round" filter="url(#neon-glow)"/>
+  </g>
+  
+  <!-- Буква У -->
+  <g fill="#ffffff" filter="url(#neon-glow)">
+    <!-- Левая наклонная -->
+    <line x1="370" y1="80" x2="420" y2="160" stroke="#ffffff" stroke-width="18" stroke-linecap="round" filter="url(#neon-glow)"/>
+    <!-- Правая наклонная -->
+    <line x1="470" y1="80" x2="420" y2="160" stroke="#ffffff" stroke-width="18" stroke-linecap="round" filter="url(#neon-glow)"/>
+    <!-- Вертикаль вниз -->
+    <rect x="410" y="160" width="20" height="100" rx="2"/>
+  </g>
+  
+  <!-- Буква Ч -->
+  <g fill="#ffffff" filter="url(#neon-glow)">
+    <!-- Левая вертикаль -->
+    <rect x="530" y="80" width="20" height="160" rx="2"/>
+    <!-- Горизонталь в середине -->
+    <rect x="530" y="155" width="70" height="20" rx="2"/>
+    <!-- Правая вертикаль -->
+    <rect x="580" y="80" width="20" height="160" rx="2"/>
+  </g>
 </svg>
